@@ -27,6 +27,26 @@ int n = 3;
 int m = 4;
 int k = 2;
 
+//public static void PrintArray (int [,] matrix)
+//    {
+//      // Введите свое решение ниже
+//    }
+void PrintArray (int [,] matrix)
+{
+for (int i = 0; i < matrix.GetLength(0); i++)
+{
+    for (int j = 0; j < matrix.GetLength(1); j++)
+    {
+        Console.Write($"{matrix[i, j]}\t");
+    }
+    Console.WriteLine();
+}
+}
+
+ //public static int[,] CreateIncreasingMatrix(int n, int m, int k)
+ //   {
+      // Введите свое решение ниже
+//    }
 int[,] CreateIncreasingMatrix(int n, int m, int k)
 {
 int[,] matrix = new int[n, m];
@@ -43,43 +63,41 @@ for (int i = 0; i < matrix.GetLength(0); i++)
 return matrix;
 }
 
-
-void PrintArray (int [,] matrix)
+//static void PrintListAvr (double [] list)
+//    {
+      // Введите свое решение ниже
+//    }
+void PrintListAvr (double [] list)
 {
-for (int i = 0; i < matrix.GetLength(0); i++)
+Console.WriteLine("The averages in columns are:");
+Console.Write($"{list[0]:F2}");
+for (int i = 1; i < list.Length; i++)
 {
-    for (int j = 0; j < matrix.GetLength(1); j++)
-    {
-        Console.Write($"{matrix[i, j]}\t");
-    }
-    Console.WriteLine();
+Console.Write($"\t{list[i]:F2}");
 }
 }
 
+//static double [] FindAverageInColumns (int [,] matrix)
+//    { 
+      // Введите свое решение ниже
+ //   }
 double[] FindAverageInColumns (int [,] matrix)
 {
-double[] list = new double[matrix.GetLength(1)];
-int s = 0;
+double [] list = new double[matrix.GetLength(1)];
+double s = 0;
 for (int j = 0; j < matrix.GetLength(1); j++)
 {
     for (int i = 0; i < matrix.GetLength(0); i++)
     { 
-    s = s + matrix[i,j];
-    list[j]=s/matrix.GetLength(0);
+    s = s + Convert.ToDouble(matrix[i,j]);
+    list[j]= s/Convert.ToDouble(matrix.GetLength(0));
     }
    s = 0;
 }
 return list;
 }
 
-void PrintListAvr (double [] list)
-{
-Console.WriteLine("The averages in columns are:");
-for (int i = 0; i < list.Length; i++)
-{
-  Console.Write($"{list[i]:F2}\t");
-}
-}
+
 
 int[,] result = CreateIncreasingMatrix(n, m, k);
 PrintArray(result);
